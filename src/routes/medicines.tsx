@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Check, Pill, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Empty, fieldCls, Loading, PageHeader, SampleTag } from "@/components/Shared";
-import { actions, formatTime, sortByTime, todayISO, useSaathi } from "@/lib/saathi-store";
+import { actions, formatTime, sortByTime, todayISO, useShravan } from "@/lib/shravan-store";
 
 export const Route = createFileRoute("/medicines")({
   head: () => ({
@@ -29,7 +29,7 @@ const schema = z.object({
 const empty = { name: "", dosage: "", time: "", notes: "" };
 
 function Medicines() {
-  const s = useSaathi();
+  const s = useShravan();
   const [form, setForm] = useState(empty);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const today = todayISO();

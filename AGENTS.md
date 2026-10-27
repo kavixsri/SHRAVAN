@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 ## Architecture
-- All app data (requests, reminders, contact) lives in src/lib/saathi-store.ts via localStorage + useSyncExternalStore; pages read it with useSaathi() so Senior and Volunteer views share one source. Why: prototype without a backend.
+- All app data (requests, reminders, contact) lives in src/lib/shravan-store.ts via localStorage + useSyncExternalStore; pages read it with useShravan() so Senior and Volunteer views share one source. Why: prototype without a backend.

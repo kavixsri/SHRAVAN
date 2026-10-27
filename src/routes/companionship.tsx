@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { HeartHandshake, Phone, Home, ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Empty, fieldCls, Loading, PageHeader, SampleTag, StatusPill } from "@/components/Shared";
-import { actions, formatDate, formatTime, REQUEST_LABELS, todayISO, useSaathi, type RequestType } from "@/lib/saathi-store";
+import { actions, formatDate, formatTime, REQUEST_LABELS, todayISO, useShravan, type RequestType } from "@/lib/shravan-store";
 
 export const Route = createFileRoute("/companionship")({
   head: () => ({
@@ -33,7 +33,7 @@ const TYPES: { v: RequestType; icon: typeof Phone }[] = [
 ];
 
 function Companionship() {
-  const s = useSaathi();
+  const s = useShravan();
   const [form, setForm] = useState({ type: "" as RequestType | "", date: "", time: "", notes: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);

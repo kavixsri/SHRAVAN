@@ -6,7 +6,7 @@ import { AlertTriangle, Phone, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SosButton, telHref } from "@/components/SosButton";
 import { fieldCls, Loading, PageHeader } from "@/components/Shared";
-import { actions, useSaathi } from "@/lib/saathi-store";
+import { actions, useShravan } from "@/lib/shravan-store";
 
 export const Route = createFileRoute("/emergency")({
   head: () => ({
@@ -26,7 +26,7 @@ const schema = z.object({
 });
 
 function Emergency() {
-  const s = useSaathi();
+  const s = useShravan();
   const [form, setForm] = useState({ name: "", phone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   useEffect(() => { if (s) setForm(s.contact); }, [s?.contact.name, s?.contact.phone]); // eslint-disable-line react-hooks/exhaustive-deps

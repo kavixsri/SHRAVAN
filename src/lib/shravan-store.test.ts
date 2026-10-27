@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { nextStatus } from "./saathi-store";
+import { nextStatus } from "./shravan-store";
 
 describe("request status rules", () => {
   it("pending can be accepted", () => expect(nextStatus("pending", "accept")).toBe("accepted"));

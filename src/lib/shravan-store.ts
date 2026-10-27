@@ -25,7 +25,7 @@ export interface Reminder {
   sample?: boolean;
 }
 
-export interface SaathiState {
+export interface ShravanState {
   seniorName: string;
   contact: { name: string; phone: string };
   requests: CompanionRequest[];
@@ -38,7 +38,7 @@ export const REQUEST_LABELS: Record<RequestType, string> = {
   errand: "Help with errands",
 };
 
-const KEY = "saathi-demo-v1";
+const KEY = "shravan-demo-v1";
 
 export function todayISO(d = new Date()) {
   const p = (n: number) => String(n).padStart(2, "0");
@@ -51,7 +51,7 @@ function addDays(n: number) {
   return todayISO(d);
 }
 
-export function makeSeed(): SaathiState {
+export function makeSeed(): ShravanState {
   const now = Date.now();
   return {
     seniorName: "Kamala",
@@ -69,21 +69,21 @@ export function makeSeed(): SaathiState {
   };
 }
 
-let state: SaathiState | null = null;
+let state: ShravanState | null = null;
 const listeners = new Set<() => void>();
 
-function load(): SaathiState {
+function load(): ShravanState {
   if (state) return state;
   try {
     const raw = window.localStorage.getItem(KEY);
-    state = raw ? (JSON.parse(raw) as SaathiState) : makeSeed();
+    state = raw ? (JSON.parse(raw) as ShravanState) : makeSeed();
   } catch {
     state = makeSeed();
   }
   return state;
 }
 
-function set(next: SaathiState) {
+function set(next: ShravanState) {
   state = next;
   try {
     window.localStorage.setItem(KEY, JSON.stringify(next));
@@ -93,7 +93,7 @@ function set(next: SaathiState) {
   listeners.forEach((l) => l());
 }
 
-function update(fn: (s: SaathiState) => SaathiState) {
+function update(fn: (s: ShravanState) => ShravanState) {
   set(fn(load()));
 }
 
@@ -136,7 +136,7 @@ export const actions = {
   deleteReminder(id: string) {
     update((s) => ({ ...s, reminders: s.reminders.filter((m) => m.id !== id) }));
   },
-  setContact(contact: SaathiState["contact"]) {
+  setContact(contact: ShravanState["contact"]) {
     update((s) => ({ ...s, contact }));
   },
   reset() {
@@ -159,12 +159,12 @@ function subscribe(l: () => void) {
   };
 }
 
-export function getState(): SaathiState | null {
+export function getState(): ShravanState | null {
   return typeof window === "undefined" ? null : load();
 }
 
 /** Returns null during server render / before hydration (loading state). */
-export function useSaathi(): SaathiState | null {
+export function useShravan(): ShravanState | null {
   return useSyncExternalStore(subscribe, load, () => null);
 }
 

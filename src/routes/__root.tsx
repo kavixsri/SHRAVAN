@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "sonner";
 import { HeartHandshake, Home, Pill, Users, Siren, RotateCcw } from "lucide-react";
-import { actions } from "@/lib/saathi-store";
+import { actions } from "@/lib/shravan-store";
 import { toast } from "sonner";
 
 import logo from "@/assets/shravan-logo.png.asset.json";

@@ -3,7 +3,7 @@ import { CalendarHeart, Check, HeartHandshake, Pill, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SosButton } from "@/components/SosButton";
 import { Empty, Loading, SampleTag, StatusPill } from "@/components/Shared";
-import { actions, formatDate, formatTime, REQUEST_LABELS, sortByTime, todayISO, useSaathi } from "@/lib/saathi-store";
+import { actions, formatDate, formatTime, REQUEST_LABELS, sortByTime, todayISO, useShravan } from "@/lib/shravan-store";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,7 +23,7 @@ function greeting() {
 }
 
 function Dashboard() {
-  const s = useSaathi();
+  const s = useShravan();
   if (!s) return <Loading />;
   const today = todayISO();
   const upcoming = s.requests

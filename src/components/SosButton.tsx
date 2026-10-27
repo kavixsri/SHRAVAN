@@ -11,14 +11,14 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { useSaathi } from "@/lib/saathi-store";
+import { useShravan } from "@/lib/shravan-store";
 
 export function telHref(phone: string) {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
 }
 
 export function SosButton({ className = "" }: { className?: string }) {
-  const s = useSaathi();
+  const s = useShravan();
   const [open, setOpen] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
 
