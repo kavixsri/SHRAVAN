@@ -83,6 +83,4 @@ bunx vitest run
 - SMS or WhatsApp alerts for SOS and reminders
 - Hindi and other Indian language voice commands
 
-## Credits
 
-Built by **Kavita Dixit** with ❤️ for our elders. Based on the original [SAATHI-AI](https://github.com/bhadiv2007-bot/SAATHI-AI-) prototype.
